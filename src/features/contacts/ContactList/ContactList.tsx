@@ -15,10 +15,10 @@ export const ContactList: FC = () => {
     <>
       <ListHead
         items={[
-          { title: 'Name', width: 100, sortDir: nameSortDir, toggleSort: toggleSortDir },
-          { title: 'Email', width: 175, },
-          { title: 'Phone', width: 175, },
-          { title: 'Age', width: 100, },
+          { title: 'Name', sortDir: nameSortDir, toggleSort: toggleSortDir },
+          { title: 'Email', },
+          { title: 'Phone', },
+          { title: 'Age', },
         ]}
       />
 
@@ -26,13 +26,14 @@ export const ContactList: FC = () => {
         {items.map(item => (
           <ListItem
             items={[
-              { title: item.name, width: 100 },
-              { title: item.email, width: 175 },
-              { title: item.phone, width: 175 },
-              { title: item.age, width: 100 },
+              { title: item.name },
+              { title: item.email },
+              { title: item.phone },
+              { title: item.age },
             ]}
             onEdit={() => setCurrItem(item)}
             onDelete={() => setRemoveCandidateId(item.id)}
+            key={item.id}
           />
         ))}
       </ListBody>
