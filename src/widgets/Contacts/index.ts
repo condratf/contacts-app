@@ -1,0 +1,1 @@
+export { ContactsWithProvider as Contacts } from './Contacts'

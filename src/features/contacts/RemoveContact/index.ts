@@ -1,0 +1,1 @@
+export { RemoveContact } from './RemoveContact'

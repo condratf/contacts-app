@@ -1,0 +1,1 @@
+export type SortDir = null | 'asc' | 'desc'
