@@ -11,8 +11,8 @@ export const AddContact: FC = () => {
       {showAddForm && (
         <Dialog isOpen={showAddForm} onClose={() => setShowAddForm(false)} title="Add Contact">
           <ContactForm type='add' submitCb={() => setShowAddForm(false)} />
-        </Dialog>)
-      }
+        </Dialog>
+      )}
     </div>
   )
 }

@@ -7,10 +7,6 @@ export const ContactList: FC = () => {
   const { items, setCurrItem, isLoading, toggleSortDir, nameSortDir } = useContext(ContactContext)
   const [removeCandidateId, setRemoveCandidateId] = useState<null | string>(null)
 
-  if (!items?.length && isLoading) {
-    return <Loading />
-  }
-
   return (
     <>
       <ListHead
@@ -22,21 +18,23 @@ export const ContactList: FC = () => {
         ]}
       />
 
-      <ListBody isLoading={isLoading}>
-        {items.map(item => (
-          <ListItem
-            items={[
-              { title: item.name },
-              { title: item.email },
-              { title: item.phone },
-              { title: item.age },
-            ]}
-            onEdit={() => setCurrItem(item)}
-            onDelete={() => setRemoveCandidateId(item.id)}
-            key={item.id}
-          />
-        ))}
-      </ListBody>
+      {!items?.length && isLoading ? <Loading /> : (
+        <ListBody isLoading={isLoading}>
+          {items.map(item => (
+            <ListItem
+              items={[
+                { title: item.name },
+                { title: item.email },
+                { title: item.phone },
+                { title: item.age },
+              ]}
+              onEdit={() => setCurrItem(item)}
+              onDelete={() => setRemoveCandidateId(item.id)}
+              key={item.id}
+            />
+          ))}
+        </ListBody>
+      )}
 
       <RemoveContact
         removeId={removeCandidateId}
